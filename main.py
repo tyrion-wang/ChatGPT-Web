@@ -17,7 +17,7 @@ app.config['SECRET_KEY'] = os.urandom(24)
 with open("config.yaml", "r", encoding="utf-8") as f:
     config = yaml.load(f, Loader=yaml.FullLoader)
     if 'HTTPS_PROXY' in config:
-        if os.environ.get('HTTPS_PROXY') is None:   #优先使用环境变量中的代理，若环境变量中没有代理，则使用配置文件中的代理
+        if os.environ.get('HTTPS_PROXY') is None:   # 优先使用环境变量中的代理，若环境变量中没有代理，则使用配置文件中的代理
             os.environ['HTTPS_PROXY'] = config['HTTPS_PROXY']
     PORT = config['PORT']
     API_KEY = config['OPENAI_API_KEY']
